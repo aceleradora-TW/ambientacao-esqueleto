@@ -13,7 +13,7 @@
         <div class="columns">
             <div class="column is-6">
                 <div class="box">
-                    <form action="/pessoa/cadastro" method="post">
+                    <form action="#" method="post">
                         <div class="field">
                             <label class="label">Nome da sua Lista</label>
                             <div class="control">
@@ -25,33 +25,14 @@
                             <label class="label">Selecione produtos:</label>
                             <div class="control">
                                     <ul class="lista-produtos">
-                                        <li>
-                                            <label class="checkbox">
+                                        <li th:each="produto: ${produtos}">
+                                            <label class="checkbox" >
                                                 <input type="checkbox" checked>
-                                                Maçã
+                                                <span th:text="${produto.nome}">
+                                                </span>
                                             </label>
                                         </li>
 
-
-                                        <li><label class="checkbox">
-                                            <input type="checkbox" checked>
-                                            Banana
-                                        </label>
-                                        </li>
-
-
-                                        <li><label class="checkbox">
-                                            <input type="checkbox" checked>
-                                            Laranja
-                                        </label>
-                                        </li>
-
-
-                                        <li><label class="checkbox">
-                                            <input type="checkbox" checked>
-                                            Morango
-                                        </label>
-                                        </li>
                                     </ul>
                             </div>
                         </div>

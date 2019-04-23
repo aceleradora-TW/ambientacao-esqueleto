@@ -3,11 +3,15 @@ package com.thoughtworks.aceleradora.dominio;
 public class Produto {
     private String nome;
 
-    public Produto (String nome){
+    public Produto(String nome) {
         this.nome = nome;
     }
 
-    public String getNome(){
+    public String getNome() {
+        return nome;
+    }
+
+    public String toString() {
         return nome;
     }
 
