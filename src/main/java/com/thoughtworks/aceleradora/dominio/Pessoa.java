@@ -22,6 +22,12 @@ public class Pessoa {
 
     private Pessoa(){}
 
+    public Pessoa(Long id, String nome, String sobrenome) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+
     public Pessoa(String nome, String sobrenome) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -33,6 +39,9 @@ public class Pessoa {
 
     public String getSobrenome() {
         return sobrenome;
+    }
+    public Long getId() {
+        return id;
     }
 
     @Override
