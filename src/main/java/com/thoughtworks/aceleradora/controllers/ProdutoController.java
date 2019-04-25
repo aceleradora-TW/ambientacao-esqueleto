@@ -1,6 +1,7 @@
 package com.thoughtworks.aceleradora.controllers;
 
 import com.thoughtworks.aceleradora.dominio.Produto;
+import com.thoughtworks.aceleradora.dominio.ProdutoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,24 +14,20 @@ import java.util.List;
 @RequestMapping("/produtos")
 public class ProdutoController {
     private List<Produto> produtos = new ArrayList<>();
+    private ProdutoRepository repositorio;
 
-    public ProdutoController() {
-        Produto banana = new Produto("banana");
-        Produto uva = new Produto("uva");
-        Produto maca = new Produto("maçã");
-        Produto laranja = new Produto("laranja");
-        produtos.add(banana);
-        produtos.add(uva);
-        produtos.add(maca);
-        produtos.add(laranja);
+    public ProdutoController(ProdutoRepository repositorio) {
+        this.repositorio = repositorio;
+
     }
 
     @GetMapping("/listar")
     public String mostrarLista(Model model) {
-        model.addAttribute("produtos", produtos);
-        System.out.println(produtos);
+
+        ArrayList<Produto> produtos2= (ArrayList<Produto>) repositorio.findAll();
+        System.out.println(produtos2);
+        model.addAttribute("produtos", produtos2);
         return "produto/lista";
     }
-
 
 }

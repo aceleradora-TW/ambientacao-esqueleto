@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/Users/la.jeansarlon/Desktop/ambientacao-esqueleto/src/main/resources";
+/******/ 	__webpack_require__.p = "/home/pc/esqueleto-ambulante/src/main/resources";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
