@@ -8,14 +8,14 @@ import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name="listas")
 public class Lista {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String nome;
-
+    
     private List<Produto> produtos = new ArrayList<>();
 
     public Lista(){

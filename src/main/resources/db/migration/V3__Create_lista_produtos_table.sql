@@ -3,6 +3,6 @@ CREATE TABLE lista_produtos (
     id_produto integer,
     id_lista integer,
 
-    contraint fk_produto foreign key (id_produto) references produto(id),
-    contraint fk_lista foreign key (id_lista) references lista(id)
+    constraint fk_produto foreign key (id_produto) references produtos(id),
+    constraint fk_lista foreign key (id_lista) references listas(id)
 );

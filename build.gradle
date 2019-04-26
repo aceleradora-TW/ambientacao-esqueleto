@@ -52,7 +52,8 @@ bootRun {
   def activeProfiles = 'dev'
   classpath = sourceSets.main.runtimeClasspath + configurations.developmentOnly
 
-  jvmArgs = [
-    "-Dspring.profiles.active=$activeProfiles"
+    jvmArgs = [
+    "-Dspring.profiles.active=$activeProfiles",
+    "-agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=n"
   ]
 }

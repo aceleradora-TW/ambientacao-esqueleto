@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name="produtos")
 public class Produto {
 
     @Id
