@@ -1,22 +1,23 @@
 package com.thoughtworks.aceleradora.dominio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
-
 @Entity(name="listas")
 public class Lista {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = IDENTITY)
+    @Id@GeneratedValue@Access(value=AccessType.FIELD)
     private Long id;
+
     private String nome;
-    
-    private List<Produto> produtos = new ArrayList<>();
 
     public Lista(){
 
@@ -44,12 +45,15 @@ public class Lista {
         return nome;
     }
 
-    public List<Produto> getProdutos(){
+
+    @ManyToMany(mappedBy = "listas")
+    @JsonIgnoreProperties("listas")
+    private List<Produto> produtos;
+
+
+    public List<Produto> getProdutos() {
         return produtos;
     }
-
-
-
 
 
 }
