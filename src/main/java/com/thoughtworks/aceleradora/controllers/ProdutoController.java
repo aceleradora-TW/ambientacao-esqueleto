@@ -13,7 +13,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/produtos")
 public class ProdutoController {
-    private List<Produto> produtos = new ArrayList<>();
     private ProdutoRepository repositorio;
 
     public ProdutoController(ProdutoRepository repositorio) {
@@ -24,10 +23,8 @@ public class ProdutoController {
     @GetMapping("/listar")
     public String mostrarLista(Model model) {
 
-        ArrayList<Produto> produtos2= (ArrayList<Produto>) repositorio.findAll();
-        System.out.println(produtos2);
-        model.addAttribute("produtos", produtos2);
+        Iterable produtos = repositorio.findAll();
+        model.addAttribute("produtos", produtos);
         return "produto/lista";
     }
-
 }
