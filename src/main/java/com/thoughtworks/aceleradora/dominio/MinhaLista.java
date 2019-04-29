@@ -16,14 +16,16 @@ public class MinhaLista {
     private Long id;
 
     private String nome;
-
-    @ManyToMany(mappedBy = "listas")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "lista_produtos",
+            joinColumns = { @JoinColumn(name = "id_lista") },
+            inverseJoinColumns = { @JoinColumn(name = "id_produto") }
+    )
     @JsonIgnoreProperties("listas")
     private List<Produto> produtos = new ArrayList<>();
 
-    public MinhaLista(){
-
-    }
+    public MinhaLista(){}
 
     public MinhaLista(String nome){
         this.nome = nome;

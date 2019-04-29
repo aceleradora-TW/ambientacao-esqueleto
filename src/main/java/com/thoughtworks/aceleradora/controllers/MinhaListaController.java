@@ -26,7 +26,7 @@ public class MinhaListaController {
     }
 
 
-    @GetMapping("/criar")
+    @GetMapping("/cadastro")
     public String criarLista(Model model) {
 
         model.addAttribute("produtos", produtoService.getAll());
@@ -34,11 +34,10 @@ public class MinhaListaController {
     }
 
 
-    @PostMapping("/criar")
+    @PostMapping("/cadastro")
     public String salvarLista(MinhaLista lista) {
 
-        minhaListaService.salvar(lista);
-
+        MinhaLista novalista = minhaListaService.salvar(lista);
         return "/minhaLista/cadastroLista";
     }
 

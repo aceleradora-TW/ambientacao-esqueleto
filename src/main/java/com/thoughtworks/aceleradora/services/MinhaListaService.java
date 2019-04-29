@@ -13,10 +13,8 @@ public class MinhaListaService {
         this.repositorio = repositorio;
     }
 
-    public void salvar(MinhaLista lista) {
-
-        repositorio.save(lista);
-
+    public MinhaLista  salvar(MinhaLista lista) {
+        return repositorio.save(lista);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.thoughtworks.aceleradora.dominio;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 import java.util.ArrayList;
@@ -17,12 +19,15 @@ public class Produto {
     private Long id;
     private String nome;
 
-    @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.ALL})
+//    @ManyToMany(mappedBy = "produtos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "lista_produtos",
             joinColumns = { @JoinColumn(name = "id_produto") },
             inverseJoinColumns = { @JoinColumn(name = "id_lista") }
     )
+    @JsonIgnoreProperties("produtos")
     private List<MinhaLista> listas = new ArrayList<>();
 
     public Produto(){}
