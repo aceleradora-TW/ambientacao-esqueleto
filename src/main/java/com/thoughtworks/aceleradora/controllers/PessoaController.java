@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/pessoa")
-public class PessoaController {
+public class
+PessoaController {
 
     private PessoaRepository repositorio;
 

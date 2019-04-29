@@ -4,26 +4,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
-@Entity(name="listas")
-public class Lista {
 
-//    @Id
-//    @GeneratedValue(strategy = IDENTITY)
-    @Id@GeneratedValue@Access(value=AccessType.FIELD)
+@Entity(name="listas")
+public class MinhaLista {
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     private String nome;
 
-    public Lista(){
+    @ManyToMany(mappedBy = "listas")
+    @JsonIgnoreProperties("listas")
+    private List<Produto> produtos = new ArrayList<>();
+
+    public MinhaLista(){
 
     }
 
-    public Lista(String nome){
+    public MinhaLista(String nome){
         this.nome = nome;
 
     }
@@ -46,10 +48,9 @@ public class Lista {
     }
 
 
-    @ManyToMany(mappedBy = "listas")
-    @JsonIgnoreProperties("listas")
-    private List<Produto> produtos;
-
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
 
     public List<Produto> getProdutos() {
         return produtos;

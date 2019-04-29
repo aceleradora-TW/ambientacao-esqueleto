@@ -1,7 +1,7 @@
 package com.thoughtworks.aceleradora.webservice;
 
-import com.thoughtworks.aceleradora.dominio.Lista;
-import com.thoughtworks.aceleradora.dominio.ListaRepository;
+import com.thoughtworks.aceleradora.dominio.MinhaLista;
+import com.thoughtworks.aceleradora.dominio.MinhaListaRepository;
 import com.thoughtworks.aceleradora.dominio.Produto;
 import com.thoughtworks.aceleradora.dominio.ProdutoRepository;
 import org.springframework.stereotype.Controller;
@@ -19,15 +19,15 @@ public class ControllerWs {
 
 
     private ProdutoRepository produtoRepository;
-    private ListaRepository listaRepository;
+    private MinhaListaRepository minhaListaRepository;
 
     public ControllerWs(
             ProdutoRepository repositorio,
-            ListaRepository listaRepository
+            MinhaListaRepository minhaListaRepository
     ){
 
         this.produtoRepository = repositorio;
-        this.listaRepository = listaRepository;
+        this.minhaListaRepository = minhaListaRepository;
     }
 
     @ResponseBody
@@ -38,8 +38,8 @@ public class ControllerWs {
 
     @ResponseBody
     @GetMapping("/listas")
-    List<Lista> allLists() {
-        return (List<Lista>) listaRepository.findAll();
+    List<MinhaLista> allLists() {
+        return (List<MinhaLista>) minhaListaRepository.findAll();
     }
 
 

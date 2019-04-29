@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ListaRepository extends CrudRepository<Lista, Long> {
+public interface MinhaListaRepository extends CrudRepository<MinhaLista, Long> {
 }
 

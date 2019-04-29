@@ -13,7 +13,7 @@
         <div class="columns">
             <div class="column is-6">
                 <div class="box">
-                    <form action="#" method="post">
+                    <form action="/minhalista/criar" method="post">
                         <div class="field">
                             <label class="label">Nome da sua Lista</label>
                             <div class="control">
@@ -26,8 +26,8 @@
                             <div class="control">
                                     <ul class="lista-produtos">
                                         <li th:each="produto: ${produtos}">
-                                            <label class="checkbox" >
-                                                <input type="checkbox" checked>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="produtos" th:value="${produto.id}">
                                                 <span th:text="${produto.nome}">
                                                 </span>
                                             </label>

@@ -3,9 +3,8 @@ package com.thoughtworks.aceleradora.dominio;
 
 import javax.persistence.*;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -24,7 +23,7 @@ public class Produto {
             joinColumns = { @JoinColumn(name = "id_produto") },
             inverseJoinColumns = { @JoinColumn(name = "id_lista") }
     )
-    private Set<Lista> listas;
+    private List<MinhaLista> listas = new ArrayList<>();
 
     public Produto(){}
 
@@ -49,11 +48,11 @@ public class Produto {
     }
 
 
-    public Set<Lista> getListas() {
+    public List<MinhaLista> getListas() {
         return listas;
     }
 
-    public void setListas(Set<Lista> listas) {
+    public void setListas(List<MinhaLista> listas) {
         this.listas = listas;
     }
 
