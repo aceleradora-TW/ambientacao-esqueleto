@@ -18,6 +18,13 @@ public class Produto {
     private Long id;
     private String nome;
 
+    @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "lista_produtos",
+            joinColumns = { @JoinColumn(name = "id_produto") },
+            inverseJoinColumns = { @JoinColumn(name = "id_lista") }
+    )
+    private Set<Lista> listas;
 
     public Produto(){}
 
@@ -41,13 +48,6 @@ public class Produto {
         return id;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.ALL})
-    @JoinTable(
-            name = "lista_produtos",
-            joinColumns = { @JoinColumn(name = "id_produto") },
-            inverseJoinColumns = { @JoinColumn(name = "id_lista") }
-    )
-    private Set<Lista> listas;
 
     public Set<Lista> getListas() {
         return listas;
