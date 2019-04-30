@@ -19,8 +19,6 @@ public class Produto {
     private Long id;
     private String nome;
 
-//    @ManyToMany(mappedBy = "produtos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "lista_produtos",

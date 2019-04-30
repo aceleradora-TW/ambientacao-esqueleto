@@ -16,6 +16,9 @@ public class MinhaLista {
     private Long id;
 
     private String nome;
+
+//    @ManyToMany(mappedBy = "produtos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "lista_produtos",
@@ -23,9 +26,12 @@ public class MinhaLista {
             inverseJoinColumns = { @JoinColumn(name = "id_produto") }
     )
     @JsonIgnoreProperties("listas")
+
     private List<Produto> produtos = new ArrayList<>();
 
-    public MinhaLista(){}
+    public MinhaLista(){
+
+    }
 
     public MinhaLista(String nome){
         this.nome = nome;
