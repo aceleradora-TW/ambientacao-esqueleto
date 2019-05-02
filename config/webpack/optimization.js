@@ -3,12 +3,12 @@ module.exports = {
   minimizer: [
     new UglifyJsPlugin({
       test: /\.js(\?.*)?$/i,
-      extractComments: 'all',
-      sourceMap: true,
+      extractComments: false,
+      sourceMap: devMode,
       uglifyOptions: {
         warnings: false,
         parse: {},
-        compress: { warnings: false },
+        compress: { warnings: false, drop_console:  !devMode},
         mangle: true,
         output: { comments: false },
         toplevel: false,

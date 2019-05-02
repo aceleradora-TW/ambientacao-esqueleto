@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title th:replace="${title}"></title>
-    <link href="/assets/css/app.css" rel="stylesheet">
+    <link th:href="@{/assets/css/app.css}" rel="stylesheet">
 </head>
 
 <body class="has-background-light">
@@ -33,6 +33,6 @@
     <button class="delete"></button>
     <div class="body"></div>
 </div>
-<script src="/assets/js/app.js"></script>
+<script th:src="@{/assets/js/app.js}"></script>
 </body>
 </html>

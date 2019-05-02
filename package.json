@@ -37,8 +37,8 @@
     "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
-    "watch": "webpack --mode development --watch --NODE_ENV development",
-    "build": "webpack --colors --mode production",
+    "watch": "NODE_ENV=development webpack --mode development --watch",
+    "build": "NODE_ENV=production webpack --colors --mode production",
     "dev": "npm run build -- --mode development --inline --hot"
   },
   "repository": {
