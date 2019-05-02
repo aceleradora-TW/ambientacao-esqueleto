@@ -1,5 +1,6 @@
-package com.thoughtworks.aceleradora.dominio;
+package com.thoughtworks.aceleradora.repositorios;
 
+import com.thoughtworks.aceleradora.dominio.Produto;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

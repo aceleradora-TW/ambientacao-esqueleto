@@ -1,17 +1,17 @@
-package com.thoughtworks.aceleradora.services;
+package com.thoughtworks.aceleradora.servicos;
 
 import com.thoughtworks.aceleradora.dominio.Produto;
-import com.thoughtworks.aceleradora.dominio.ProdutoRepositorio;
+import com.thoughtworks.aceleradora.repositorios.ProdutoRepositorio;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ProdutoService {
+public class ProdutoServico {
 
     private ProdutoRepositorio repositorio;
 
-    public ProdutoService(ProdutoRepositorio repositorio) {
+    public ProdutoServico(ProdutoRepositorio repositorio) {
         this.repositorio = repositorio;
     }
 
