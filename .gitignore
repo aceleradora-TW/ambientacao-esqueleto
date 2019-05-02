@@ -1,6 +1,10 @@
 .gradle
 /build/
 app/build
+src/main/resources/static/assets/js/
+src/main/resources/static/assets/css/
+src/main/resources/static/assets/fonts/
+src/main/resources/static/assets/svg/
 testes-funcionais/build
 
 # Ignore Gradle GUI config
